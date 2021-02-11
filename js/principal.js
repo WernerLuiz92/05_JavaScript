@@ -7,11 +7,27 @@ var paciente = document.querySelector("#primeiro-paciente");
 var peso = paciente.querySelector(".info-peso").textContent;
 var altura = paciente.querySelector(".info-altura").textContent;
 
-var imc = peso / (altura * altura);
+var pesoIsValid = true;
+var alturaIsValid = true;
 
-paciente.querySelector(".info-imc").textContent = imc;
+if((peso < 0) || (peso > 650)) {
+    console.log("Peso inválido!");
+    pesoIsValid = false;
+}
 
-console.log(paciente);
-console.log(altura);
-console.log(peso);
-console.log(imc);
+if ((altura < 0) || (altura > 3)){
+    console.log("Altura inválida!");
+    alturaIsValid = false;
+}
+
+if (alturaIsValid && pesoIsValid){
+    var imc = peso / (altura * altura);
+    paciente.querySelector(".info-imc").textContent = imc;
+} else {
+    paciente.querySelector(".info-imc").textContent = "Dados Inválidos!";
+}
+
+// console.log(paciente);
+// console.log(altura);
+// console.log(peso);
+// console.log(imc);
