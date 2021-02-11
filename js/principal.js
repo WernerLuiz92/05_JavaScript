@@ -15,3 +15,5 @@ console.log(paciente);
 console.log(altura);
 console.log(peso);
 console.log(imc);
+
+//test
