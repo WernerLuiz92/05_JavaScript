@@ -9,7 +9,7 @@ botaoAdicionar.addEventListener("click", function (event){
     //Extrai os dados do formulário para o objeto Paciente.
     var paciente = obtemPacienteDoFormulario(form);
 
-    var erros = validaPaciente(paciente);
+    var erros = validaPaciente(paciente); 
 
     exibeMensagensDeErro(erros);
 
