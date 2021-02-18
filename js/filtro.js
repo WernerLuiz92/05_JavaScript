@@ -7,8 +7,10 @@ campoFiltro.addEventListener("input", function(){
     if (this.value.length > 0){
         pacientes.forEach(paciente => {
             var nome = paciente.querySelector(".info-nome").textContent;
+
+            var expressao = new RegExp(this.value, "i");
     
-            if (nome != this.value) {
+            if (!expressao.test(nome)) {
                 paciente.classList.add("oculta-paciente");
             } else {
                 paciente.classList.remove("oculta-paciente");
