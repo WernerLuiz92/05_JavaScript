@@ -154,6 +154,10 @@ button[disabled=disabled], button:disabled {
     margin-bottom: 10px;
 }
 
-.oculta-paciente {
+.hidden {
 	display: none;
+}
+
+.err {
+	color: red;
 }

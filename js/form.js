@@ -1,15 +1,13 @@
-var botaoAdicionar = document.querySelector("#adicionar-paciente");
+let botaoAdicionar = document.querySelector("#adicionar-paciente");
 
 botaoAdicionar.addEventListener("click", function (event){
     event.preventDefault();
 
-    var form = document.querySelector("#form-adiciona");
-    
+    let form = document.querySelector("#form-adiciona");
 
-    //Extrai os dados do formulário para o objeto Paciente.
-    var paciente = obtemPacienteDoFormulario(form);
+    let paciente = obtemPacienteDoFormulario(form);
 
-    var erros = validaPaciente(paciente); 
+    let erros = validaPaciente(paciente); 
 
     exibeMensagensDeErro(erros);
 
@@ -17,17 +15,22 @@ botaoAdicionar.addEventListener("click", function (event){
         return;
     }
 
-    //Adiciona o paciente na tabela.
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(montaTr(paciente));
+    adicionaPacienteNaTabela(paciente);
 
     form.reset();
 });
 
+function adicionaPacienteNaTabela(paciente) {
+
+    let tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.appendChild(montaTr(paciente));
+
+}
+
 function obtemPacienteDoFormulario (form){
 
-    var paciente = {
+    let paciente = {
         nome: form.nome.value,
         peso: form.peso.value,
         altura: form.altura.value,
@@ -39,7 +42,7 @@ function obtemPacienteDoFormulario (form){
 }
 
 function montaTr(paciente) {
-    var pacienteTr = document.createElement("tr");
+    let pacienteTr = document.createElement("tr");
     pacienteTr.classList.add("paciente");
 
     pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
@@ -52,7 +55,7 @@ function montaTr(paciente) {
 }
 
 function montaTd(dado, classe){
-    var td = document.createElement("td");
+    let td = document.createElement("td");
     td.textContent = dado;
     td.classList.add(classe);
 
@@ -60,7 +63,7 @@ function montaTd(dado, classe){
 }
 
 function validaPaciente(paciente){
-    var erros = [];
+    let erros = [];
 
     if (paciente.nome.length == 0){
         erros.push("O campo Nome é obrigatório!")
@@ -83,11 +86,11 @@ function validaPaciente(paciente){
 }
 
 function exibeMensagensDeErro(erros) {
-    var ul = document.querySelector("#mensagens-erro");
+    let ul = document.querySelector("#mensagens-erro");
     ul.innerHTML = "";
 
     erros.forEach(erro => {
-        var li = document.createElement("li");
+        let li = document.createElement("li");
         li.textContent = erro;
 
         ul.appendChild(li);

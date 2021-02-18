@@ -1,17 +1,17 @@
-var pacientes = document.querySelectorAll(".paciente");
+let pacientes = document.querySelectorAll(".paciente");
 
-for (var i = 0; i < pacientes.length; i++){
+for (let i = 0; i < pacientes.length; i++){
 
-    var paciente = pacientes[i];
+    let paciente = pacientes[i];
     
-    var peso = paciente.querySelector(".info-peso").textContent;
-    var altura = paciente.querySelector(".info-altura").textContent;
+    let peso = paciente.querySelector(".info-peso").textContent;
+    let altura = paciente.querySelector(".info-altura").textContent;
 
-    var pesoIsValid = validaPeso(peso);
-    var alturaIsValid = validaAltura(altura);
+    let pesoIsValid = validaPeso(peso);
+    let alturaIsValid = validaAltura(altura);
 
     if (alturaIsValid && pesoIsValid){
-        var imc = calculaImc(peso, altura);
+        let imc = calculaImc(peso, altura);
         paciente.querySelector(".info-imc").textContent = imc;
     } else {
         paciente.querySelector(".info-imc").textContent = "Erro: Dados inválidos";
@@ -36,7 +36,7 @@ function validaAltura(altura) {
 }
 
 function calculaImc(peso, altura){
-    var imc = 0;
+    let imc = 0;
 
     imc = peso / (altura * altura);
 

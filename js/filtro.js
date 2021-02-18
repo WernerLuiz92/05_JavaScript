@@ -1,24 +1,24 @@
-var campoFiltro = document.querySelector("#filtrar-tabela");
+let campoFiltro = document.querySelector("#filtrar-tabela");
 
 campoFiltro.addEventListener("input", function(){
 
-    var pacientes = document.querySelectorAll(".paciente");
+    let pacientes = document.querySelectorAll(".paciente");
 
     if (this.value.length > 0){
         pacientes.forEach(paciente => {
-            var nome = paciente.querySelector(".info-nome").textContent;
+            let nome = paciente.querySelector(".info-nome").textContent;
 
-            var expressao = new RegExp(this.value, "i");
+            let expressao = new RegExp(this.value, "i");
     
             if (!expressao.test(nome)) {
-                paciente.classList.add("oculta-paciente");
+                paciente.classList.add("hidden");
             } else {
-                paciente.classList.remove("oculta-paciente");
+                paciente.classList.remove("hidden");
             }
         });
     } else {
         pacientes.forEach(paciente => {
-            paciente.classList.remove("oculta-paciente");
+            paciente.classList.remove("hidden");
         });
     }
 })

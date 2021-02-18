@@ -1,6 +1,6 @@
-var pacientes = document.querySelectorAll(".paciente");
+let pacientes = document.querySelectorAll(".paciente");
 
-var tabela = document.querySelector("#tabela-pacientes");
+let tabela = document.querySelector("#tabela-pacientes");
 
 tabela.addEventListener("dblclick", function(event){
     event.target.parentNode.classList.add("fadeOut");
