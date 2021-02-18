@@ -1,7 +1,22 @@
 var campoFiltro = document.querySelector("#filtrar-tabela");
 
 campoFiltro.addEventListener("input", function(){
-    console.log(this.value);
 
-    *** Parei em 08:27 da aula 08 item 1 ***
+    var pacientes = document.querySelectorAll(".paciente");
+
+    if (this.value.length > 0){
+        pacientes.forEach(paciente => {
+            var nome = paciente.querySelector(".info-nome").textContent;
+    
+            if (nome != this.value) {
+                paciente.classList.add("oculta-paciente");
+            } else {
+                paciente.classList.remove("oculta-paciente");
+            }
+        });
+    } else {
+        pacientes.forEach(paciente => {
+            paciente.classList.remove("oculta-paciente");
+        });
+    }
 })
